@@ -2,19 +2,36 @@
 <html>
 <head>
   <title>GifGenerator</title>
+  <link href='https://fonts.googleapis.com/css?family=Libre+Baskerville|Montserrat:700' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<% if current_user %>
-  <p>Hello <%= current_user.username %></p>
-<% else %>
-  <p>Hello</p>
+<header>
+  <div class="wrapper">
+      <h1>Gif Generator</h1>
+  </div>
+</header>
+<nav>
+  <div class="wrapper">
+    <% if current_user %>
+      <p>Hello <%= current_user.username %></p>
+      <p><%= link_to "Logout", logout_path, method: :delete %></p>
+    <% else %>
+      <p><%= link_to "Register", new_user_path %></p>
+    <% end %>
+  </div>
+</nav>
+<% if flash %>
+  <% flash.each do |type, message| %>
+  <div class="<%= "flash-#{type}" %> flash">
+    <%=  content_tag :div, message, class: "wrapper" %>
+  </div>
+  <% end %>
 <% end %>
-
-<%= yield %>
-
+<main class="wrapper">
+  <%= yield %>
+</main>
 </body>
 </html>
