@@ -4,6 +4,7 @@ require 'rails/test_help'
 require 'capybara/rails'
 require 'pry-rails'
 require 'minitest/pride'
+require 'mocha/test_unit'
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
