@@ -8,12 +8,12 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to gifs_path
     else
-      render new_user_path
+      render :new
     end
   end
 
   private
   def user_params
-    params.require(:user).permit(:name, :password)
+    params.require(:user).permit(:username, :password)
   end
 end

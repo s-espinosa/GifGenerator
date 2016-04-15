@@ -4,7 +4,7 @@ class UserCanLoginTest < ActionDispatch::IntegrationTest
   test "user can login" do
     username = "username"
     password = "password"
-    @user = User.new(username: username, password_digest: password)
+    @user = User.create(username: username, password: password)
 
     visit '/'
     fill_in 'username', with: username

@@ -1,11 +1,11 @@
 <h1>Welcome</h1>
 <%= link_to "Register", new_user_path %>
 <%= form_for(:session, url: login_path) do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
+  <%= f.label :sessions_username %>
+  <%= f.text_field :sessions_username %>
 
-  <%= f.label :password %>
-  <%= f.label :password %>
+  <%= f.label :sessions_password %>
+  <%= f.password_field :sessions_password %>
 
   <%= f.submit "Login" %>
 <% end %>
