@@ -34,6 +34,12 @@ class UserCanLoginTest < ActionDispatch::IntegrationTest
 
     assert_equal login_path, current_path
     assert page.has_content?("Please try again")
+
+    fill_in 'session[username]', with: username
+    click_on "Login"
+
+    assert_equal login_path, current_path
+    assert page.has_content?("Please try again")
   end
 
   test "user can logout" do
