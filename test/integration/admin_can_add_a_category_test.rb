@@ -13,6 +13,18 @@ class AdminCanCreateCategoryTest < ActionDispatch::IntegrationTest
     assert page.has_content?("Category successfully created.")
   end
 
+  test "admin can delete a category" do
+    Category.create(name: "puppies")
+    Category.create(name: "kittens")
+    login_admin
+
+    visit admin_categories_path
+    page.find(".puppies-delete").click
+
+    assert page.has_content?("kittens")
+    refute page.has_content?("puppies")
+  end
+
   def login_admin
     admin = User.create(
       username: "admin",
