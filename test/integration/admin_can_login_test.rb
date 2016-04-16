@@ -11,8 +11,8 @@ class AdminCanLoginTest < ActionDispatch::IntegrationTest
 
   def login_admin
     admin = User.create(
-      username: "admin"
-      password: "password"
+      username: "admin",
+      password: "password",
       role:     1
     )
     ApplicationController.any_instance.stubs(:current_user).returns(admin)
