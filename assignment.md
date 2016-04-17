@@ -3,13 +3,6 @@
 *Goal:* Create an app where users can "favorite" gifs.
 
 
-
-## Visitors
-
-* visitors (non-registered users) can create user accounts
-
-
-
 ## Users
 
 * Regular users can mark a gif as "favorite".
@@ -28,28 +21,6 @@
 
 
 
-## Admins
-
-### Generating Gifs
-
-* Generate gifs by entering a one-word search term in field and then clicking "generate gif".
-* Use [Giphy API](https://github.com/giphy/GiphyAPI)
-* Gifs belong to a category (category is the original word that was searched for by the admin).
-* Should create a new gif in the database.
-* Feature is not available to regular users.
-
-### Categories
-
-* Categories can be created and destroyed by a logged-in admin user (regular logged in users cannot create or destroy categories)
-
-
-
-## Gifs
-
-* Gifs should have an image_path.
-* The most simplistic way to implement images is to store a url to an online image.
-* If you're feeling fancy and want to upload your own images, check out [Carrierwave](https://github.com/carrierwaveuploader/carrierwave) or [Paperclip](https://github.com/thoughtbot/paperclip).
-* Use the GiphyApi to generate gifs.
 
 
 

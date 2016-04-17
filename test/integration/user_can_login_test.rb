@@ -22,6 +22,26 @@ class UserCanLoginTest < ActionDispatch::IntegrationTest
     assert page.has_content?("Please try again")
   end
 
+  test "user must enter a valid password to login" do
+    username = "username"
+    password = "password"
+    @user = User.create(username: username, password: password)
+
+    visit '/'
+    fill_in 'session[username]', with: username
+    fill_in 'session[password]', with: "joe"
+    click_on "Login"
+
+    assert_equal login_path, current_path
+    assert page.has_content?("Please try again")
+
+    fill_in 'session[username]', with: username
+    click_on "Login"
+
+    assert_equal login_path, current_path
+    assert page.has_content?("Please try again")
+  end
+
   test "user can logout" do
     login_user
     assert page.has_content?("Hello #{@user.username}")

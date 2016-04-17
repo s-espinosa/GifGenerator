@@ -43,7 +43,7 @@ nav p, nav a {
   font-family: 'Libre Baskerville', serif;
 }
 
-.flash-error {
+.flash-error, .flash-delete {
   background-color: #ff88aa;
   color: white;
 }

@@ -30,12 +30,16 @@ gem 'unicorn'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Faraday for Giphy requests
+gem 'faraday'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'capybara'
   gem 'launchy'
   gem 'pry-rails'
+  gem 'mocha'
 end
 
 group :development do
