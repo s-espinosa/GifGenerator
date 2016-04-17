@@ -1,1 +1,6 @@
 <h2>Category: <%= @category.name %></h2>
+
+<% @category.gifs.each_with_index do |gif, index|  %>
+  <img src="<%= gif.url %>">
+  <% if (index + 1)%5 == 0 %><br><% end %>
+<% end %>

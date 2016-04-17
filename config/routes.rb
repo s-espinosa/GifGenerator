@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   resources :gifs, only: [:index]
   namespace :admin do
-    resources :categories, only: [:index, :new, :show, :create, :destroy]
+    resources :categories, only: [:index, :new, :show, :create, :destroy] do
+      resources :gifs,     only: [:new, :create]
+    end
   end
 
   get '/login', to: 'sessions#new'

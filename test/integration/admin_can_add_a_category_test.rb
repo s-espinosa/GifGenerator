@@ -7,10 +7,10 @@ class AdminCanCreateCategoryTest < ActionDispatch::IntegrationTest
 
     visit new_admin_category_path
     fill_in "category[name]", with: new_category
-    click_on "Submit"
+    click_on "Search"
+    visit admin_category_path(Category.last.id)
 
     assert page.has_content?(new_category)
-    assert page.has_content?("Category successfully created.")
   end
 
   test "admin can delete a category" do
