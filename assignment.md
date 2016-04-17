@@ -5,10 +5,6 @@
 
 ## Users
 
-* Regular users can mark a gif as "favorite".
-* Regular users can see a list of all of the gifs they've marked as favorites.
-* Regular users should be able to see favorited gifs sorted by category.
-* Regular users should be able to see all gifs sorted by category.
 * Regular users cannot delete a gif; they can only "unfavorite" it for themselves.
 
 ### Authentication and Authorization

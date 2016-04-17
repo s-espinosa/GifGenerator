@@ -1,1 +1,8 @@
 <h2>All Gifs</h2>
+
+<% @categories.each do |category| %>
+  <h3><%= category.name %></h3>
+  <% category.gifs.each do |gif| %>
+    <img src="<%= gif.url %>">
+  <% end %>
+<% end %>
