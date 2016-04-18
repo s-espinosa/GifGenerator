@@ -57,3 +57,21 @@ nav p, nav a {
   background-color: #dd9944;
   color: white;
 }
+
+.remove-link {
+  width: 200px;
+  background-color: #aa2244;
+  color: white;
+  padding: 3px 0;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.remove-link a {
+  color: white;
+  text-decoration: none;
+}
+
+.index-images {
+  width: 200px;
+}
