@@ -1,0 +1,17 @@
+<nav>
+  <div class="wrapper">
+    <% if current_user %>
+      <p>Hello <%= current_user.username %></p>
+      <% if current_user.role == "admin" %>
+        <p><%= link_to "View Categories", admin_categories_path %></p>
+        <p><%= link_to "Create Category", new_admin_category_path %></p>
+      <% end %>
+      <p><%= link_to "View Gifs", gifs_path %></p>
+      <p><%= link_to "View Favorites", favorites_path %></p>
+      <p><%= link_to  "Add Favorites", new_favorite_path %></p>
+      <p><%= link_to "Logout", logout_path, method: :delete %></p>
+    <% else %>
+      <p><%= link_to "Register", new_user_path %></p>
+    <% end %>
+  </div>
+</nav>

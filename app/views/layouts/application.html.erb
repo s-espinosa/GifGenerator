@@ -13,16 +13,7 @@
       <h1>Gif Generator</h1>
   </div>
 </header>
-<nav>
-  <div class="wrapper">
-    <% if current_user %>
-      <p>Hello <%= current_user.username %></p>
-      <p><%= link_to "Logout", logout_path, method: :delete %></p>
-    <% else %>
-      <p><%= link_to "Register", new_user_path %></p>
-    <% end %>
-  </div>
-</nav>
+<%= render 'nav' %>
 <% if flash %>
   <% flash.each do |type, message| %>
   <div class="<%= "flash-#{type}" %> flash">
