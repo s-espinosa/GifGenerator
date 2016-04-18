@@ -1,7 +1,7 @@
 <h2>Your Favorites</h2>
 
-<% current_user.categories.each do |category| %>
-  <h3><%= category.name %></h3>
+<% current_user.categories.uniq.each do |category| %>
+  <h3 class="clearfix" ><%= category.name %></h3>
   <% current_user.gifs.each_with_index do |gif, index| %>
     <% if gif.category.name == category.name %>
       <div class="index-images">

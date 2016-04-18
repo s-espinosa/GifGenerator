@@ -33,10 +33,19 @@ nav {
 
 nav p, nav a {
   margin: 0px;
-  padding: 0px 10px 0px 0px;
   color: white;
   display: inline;
+  text-decoration: none;
 }
+
+nav a {
+  padding: 8px;
+}
+
+nav a:hover {
+  background-color: #ff88aa;
+}
+
 
 .flash {
   padding: 10px 0;
@@ -74,4 +83,6 @@ nav p, nav a {
 
 .index-images {
   width: 200px;
+  display: inline-block;
+  margin: 0 20px 0 0;
 }
