@@ -33,10 +33,21 @@ class UserCanSeeAllGifsSortedByCategory < ActionDispatch::IntegrationTest
     click_on "Favorite Gifs"
 
     assert_equal favorites_path, current_path
-    save_and_open_page
     assert page.has_css?("img[src*='http://media0.giphy.com/media/26xoplW0VhLLByrAY/200w.gif']")
     assert page.has_css?("img[src*='http://media1.giphy.com/media/NJ2B6cOfyEpJS/200w.gif']")
     assert page.has_css?("img[src*='http://media3.giphy.com/media/FPNiGHMGcsl6o/200w.gif']")
+  end
+
+  test "user can un-favorite gifs" do
+    create_categories
+    create_gifs
+    login_user
+    favorite_gifs
+
+    click_on "1-delete"
+
+    assert_equal favorites_path, current_path
+    refute page.has_content?("rabbits")
   end
 
   def login_user
@@ -69,5 +80,13 @@ class UserCanSeeAllGifsSortedByCategory < ActionDispatch::IntegrationTest
     Gif.create(url: "https://media0.giphy.com/media/t7MWRoExDRF72/200w.gif", category_id: @kittens.id)
     Gif.create(url: "http://media3.giphy.com/media/oL5LPpbJrGZxe/200w.gif", category_id: @kittens.id)
     Gif.create(url: "http://media3.giphy.com/media/FPNiGHMGcsl6o/200w.gif", category_id: @kittens.id)
+  end
+
+  def favorite_gifs
+    visit new_favorite_path
+    page.check("sloths1")
+    page.check("rabbits2")
+    page.check("kittens3")
+    click_on "Favorite Gifs"
   end
 end

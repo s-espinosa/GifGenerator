@@ -10,16 +10,21 @@ class FavoritesController < ApplicationController
   end
 
   def index
+  end
 
+  def destroy
+    Favorite.find(params[:id]).destroy
+    redirect_to favorites_path
   end
 
   private
   def create_favorites
     favorited_urls = get_favorited_urls
     favorited_gifs = get_favorited_gifs(favorited_urls)
-
     favorited_gifs.each do |gif|
-      Favorite.create(gif_id: gif.id, user_id: current_user.id)
+      sha = Digest::SHA1.hexdigest("#{gif.url}#{current_user.username}")
+
+      Favorite.create(gif_id: gif.id, user_id: current_user.id, sha: sha)
     end
   end
 

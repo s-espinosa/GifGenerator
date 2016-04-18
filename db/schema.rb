@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160417211918) do
+ActiveRecord::Schema.define(version: 20160417235544) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20160417211918) do
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
     t.integer "gif_id"
+    t.string  "sha"
   end
 
   add_index "favorites", ["gif_id"], name: "index_favorites_on_gif_id", using: :btree
